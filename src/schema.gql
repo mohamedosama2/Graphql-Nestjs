@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  _id: String!
+
+  """Email"""
+  username: String!
+
+  """Email"""
+  email: String!
+}
+
+type Pet {
+  _id: String!
+  name: String!
+  type: String
+  owner: User
+}
+
+type Query {
+  findOneById(id: String!): Pet!
+  pets: [Pet!]!
+  user(id: String!): User!
+}
+
+type Mutation {
+  createPet(CreatePetInput: CreatePetInput!): Pet!
+  createUser(createUserInput: CreateUserInput!): User!
+}
+
+input CreatePetInput {
+  name: String!
+  type: String
+  owner: String!
+}
+
+input CreateUserInput {
+  """Email"""
+  username: String!
+
+  """Email"""
+  email: String!
+}
